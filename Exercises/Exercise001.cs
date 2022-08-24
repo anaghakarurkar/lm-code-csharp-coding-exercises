@@ -8,7 +8,7 @@ namespace Exercises
     {
         public string CapitalizeWord(string word)
         {
-            //code to check if word is " " or empty or null
+            //check if word is " " or empty or null
             if (word == " " || String.IsNullOrEmpty(word))
                 return word;
             else
@@ -17,8 +17,7 @@ namespace Exercises
 
         public string GenerateInitials(string firstName, string lastName)
         {
-            // Replace the exception statement below with your code!
-            throw new NotImplementedException();
+            return (firstName.Substring(0, 1) + "." + lastName.Substring(0, 1)).ToUpper();
         }
 
         public double AddVat(double originalPrice, double vatRate)
