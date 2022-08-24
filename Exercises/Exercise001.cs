@@ -22,30 +22,54 @@ namespace Exercises
 
         public double AddVat(double originalPrice, double vatRate)
         {
+            //check for invalid negative original price or varRate
             if (originalPrice < 0 )
                 throw new ArgumentException("Price cannot be negative. Please enter a valid price.");
             if (vatRate < 0)
                 throw new ArgumentException("VAT cannot be negative. Please enter a valid VAT.");
 
+            //Vat calculation
             double vatAmt = ((vatRate / 100) * originalPrice);
-            // 
+            
+            //final value upto two decimal places
             return Math.Round(originalPrice + vatAmt,2,MidpointRounding.AwayFromZero);
-
-            // NB: Look in Exercise001Tests.cs
-            //     There is a test with commented out assertions.
-            //     For an extra challenge, uncomment those assertions and make that test pass too.
+            
+            // Extra challege test passed!
         }
 
         public string Reverse(string sentence)
         {
-            // Replace the exception statement below with your code!
-            throw new NotImplementedException();
+            if (sentence == " " || String.IsNullOrEmpty(sentence))
+                return sentence;
+            else
+            {
+                char[] letters = sentence.ToCharArray();
+                String reversedString = "";
+
+                for (int i = letters.Length - 1; i >= 0; i--)
+                {
+                    reversedString = reversedString + letters[i];
+                }
+
+                return reversedString;
+            }
         }
 
         public int CountLinuxUsers(List<User> users)
         {
-            // Replace the exception statement below with your code!
-            throw new NotImplementedException();
+            int userCount = 0;
+
+            if (users.Count == 0 || users == null)
+                return userCount; // return 0 if list is empty or null
+            else
+            {
+                foreach(User user in users)
+                {
+                    if(user.Type.Equals("Linux"))
+                        userCount++;
+                }
+                return userCount;
+            }
         }
     }
 }
