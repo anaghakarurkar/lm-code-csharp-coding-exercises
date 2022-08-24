@@ -12,7 +12,7 @@ namespace Exercises
             if (word == " " || String.IsNullOrEmpty(word))
                 return word;
             else
-            return word.ToUpper();
+            return (word.Substring(0,1).ToUpper() + word.Substring(1,word.Length-1).ToLower());
         }
 
         public string GenerateInitials(string firstName, string lastName)
