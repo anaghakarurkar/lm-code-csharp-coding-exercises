@@ -22,8 +22,14 @@ namespace Exercises
 
         public double AddVat(double originalPrice, double vatRate)
         {
-            // Replace the exception statement below with your code!
-            throw new NotImplementedException();
+            if (originalPrice < 0 )
+                throw new ArgumentException("Price cannot be negative. Please enter a valid price.");
+            if (vatRate < 0)
+                throw new ArgumentException("VAT cannot be negative. Please enter a valid VAT.");
+
+            double vatAmt = ((vatRate / 100) * originalPrice);
+            // 
+            return Math.Round(originalPrice + vatAmt,2,MidpointRounding.AwayFromZero);
 
             // NB: Look in Exercise001Tests.cs
             //     There is a test with commented out assertions.
