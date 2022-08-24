@@ -57,19 +57,21 @@ namespace Exercises
 
         public int CountLinuxUsers(List<User> users)
         {
+            // return 0 if list is empty or null
             int userCount = 0;
+           
+            if (users == null || users.Count == 0)
+                return userCount; 
 
-            if (users.Count == 0 || users == null)
-                return userCount; // return 0 if list is empty or null
-            else
-            {
-                foreach(User user in users)
-                {
-                    if(user.Type.Equals("Linux"))
-                        userCount++;
+
+
+            foreach (User user in users)
+                {  
+                          if (user.Type.Equals("Linux"))
+                            userCount++;
                 }
                 return userCount;
-            }
+            
         }
     }
 }
