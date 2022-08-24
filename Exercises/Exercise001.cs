@@ -8,6 +8,10 @@ namespace Exercises
     {
         public string CapitalizeWord(string word)
         {
+            //code to check if word is " " or empty or null
+            if (word == " " || String.IsNullOrEmpty(word))
+                return word;
+            else
             return word.ToUpper();
         }
 
