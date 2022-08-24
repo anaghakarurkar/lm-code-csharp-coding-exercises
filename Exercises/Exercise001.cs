@@ -8,8 +8,7 @@ namespace Exercises
     {
         public string CapitalizeWord(string word)
         {
-            // Replace the exception statement below with your code!
-            throw new NotImplementedException();
+            return word.ToUpper();
         }
 
         public string GenerateInitials(string firstName, string lastName)
