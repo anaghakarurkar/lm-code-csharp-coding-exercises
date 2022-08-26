@@ -12,6 +12,7 @@ namespace Exercises
 
         public bool CanWatchFilm(Person person, int ageLimit)
         {
+            //if persong is 18 or over person can watch a film
             return person.Age >= 18;
         }
     }
