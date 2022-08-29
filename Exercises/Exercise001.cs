@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Exercises.Models;
 
 
@@ -13,7 +14,7 @@ namespace Exercises
             if (word == " " || String.IsNullOrEmpty(word))
                 return word;
             else
-            return (word.Substring(0,1).ToUpper() + word.Substring(1,word.Length-1).ToLower());
+                return (word.Substring(0, 1).ToUpper() + word.Substring(1, word.Length - 1).ToLower());
         }
 
         public string GenerateInitials(string firstName, string lastName)
@@ -24,17 +25,17 @@ namespace Exercises
         public double AddVat(double originalPrice, double vatRate)
         {
             //check for invalid negative original price or varRate
-            if (originalPrice < 0 )
+            if (originalPrice < 0)
                 throw new ArgumentException("Price cannot be negative. Please enter a valid price.");
             if (vatRate < 0)
                 throw new ArgumentException("VAT cannot be negative. Please enter a valid VAT.");
 
             //Vat calculation
             double vatAmt = ((vatRate / 100) * originalPrice);
-            
+
             //final value upto two decimal places
-            return Math.Round(originalPrice + vatAmt,2,MidpointRounding.AwayFromZero);
-            
+            return Math.Round(originalPrice + vatAmt, 2, MidpointRounding.AwayFromZero);
+
             // Extra challege test passed!
         }
 
@@ -49,7 +50,7 @@ namespace Exercises
 
                 for (int i = letters.Length - 1; i >= 0; i--)
                 {
-                    reversedString = reversedString + letters[i];
+                    reversedString += letters[i];
                 }
 
                 return reversedString;
@@ -60,19 +61,18 @@ namespace Exercises
         {
             // return 0 if list is empty or null
             int userCount = 0;
-           
+
             if (users == null || users.Count == 0)
-                return userCount; 
+                return userCount;
 
-
+            //  from u in users where u.Type.Equals("Linux") =>  userCount++;
 
             foreach (User user in users)
-                {  
-                          if (user.Type.Equals("Linux"))
-                            userCount++;
-                }
-                return userCount;
-            
+            {
+                if (user.Type.Equals("Linux"))
+                    userCount++;
+            }
+            return userCount;
         }
     }
 }
