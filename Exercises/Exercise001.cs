@@ -65,13 +65,11 @@ namespace Exercises
             if (users == null || users.Count == 0)
                 return userCount;
 
-            //  from u in users where u.Type.Equals("Linux") =>  userCount++;
+            userCount = (from user in users
+                         where user.Type.Equals("Linux")
+                         select user).Count();
 
-            foreach (User user in users)
-            {
-                if (user.Type.Equals("Linux"))
-                    userCount++;
-            }
+
             return userCount;
         }
     }
